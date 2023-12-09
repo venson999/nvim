@@ -94,3 +94,9 @@ lspconfig.lua_ls.setup({
 lspconfig.pyright.setup({
   capabilities = capabilities,
 })
+
+local args = vim.api.nvim_get_vvar("argv")
+if #args > 2 then
+else
+  require("persistence").load({ last = true })
+end
