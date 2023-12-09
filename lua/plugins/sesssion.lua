@@ -5,5 +5,12 @@ return {
     opts = {
       -- add any custom options here
     },
+    config = function()
+      local args = vim.api.nvim_get_vvar("argv")
+      if #args > 2 then
+      else
+        require("persistence").load({ last = true })
+      end
+    end,
   },
 }

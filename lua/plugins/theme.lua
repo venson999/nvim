@@ -1,6 +1,9 @@
 return {
   {
     "RRethy/nvim-base16",
-    lazy = true,
+    config = function()
+      -- color scheme
+      vim.cmd.colorscheme("base16-tender")
+    end,
   },
 }
