@@ -75,24 +75,17 @@ if not vim.loop.fs_stat(lazypath) then
   })
 end
 vim.opt.rtp:prepend(lazypath)
-require("lazy").setup("plugins")
-
-local lspconfig = require("lspconfig")
-require("mason").setup()
-require("mason-lspconfig").setup()
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
-lspconfig.lua_ls.setup({
-  capabilities = capabilities,
-  settings = {
-    Lua = {
-      diagnostics = {
-        disable = { "missing-fields" },
-      },
-    },
+require("lazy").setup({ { import = "plugins" }, { import = "plugins.lsp" } }, {
+  install = {
+    colorscheme = { "nightfly" },
   },
-})
-lspconfig.pyright.setup({
-  capabilities = capabilities,
+  checker = {
+    enabled = true,
+    notify = false,
+  },
+  change_detection = {
+    notify = false,
+  },
 })
 
 local args = vim.api.nvim_get_vvar("argv")
