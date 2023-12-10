@@ -1,9 +1,15 @@
 return {
   {
-    "RRethy/nvim-base16",
+    "bluz71/vim-nightfly-guicolors",
+    priority = 1000, -- make sure to load this before all the other start plugins
     config = function()
-      -- color scheme
-      vim.cmd.colorscheme("base16-tender")
+      -- load the colorscheme here
+      vim.cmd([[colorscheme nightfly]])
     end,
+  },
+  {
+    "NvChad/nvim-colorizer.lua",
+    event = { "BufReadPre", "BufNewFile" },
+    config = true,
   },
 }
