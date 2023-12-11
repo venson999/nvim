@@ -1,12 +1,19 @@
 return {
   "rmagatti/auto-session",
+  dependencies = { "zwhitchcox/auto-session-nvim-tree" },
   config = function()
     local auto_session = require("auto-session")
+    local auto_session_nvim_tree = require("auto-session-nvim-tree")
 
     auto_session.setup({
+      log_level = "error",
+      cwd_change_handling = {
+        restore_upcoming_session = true,
+      },
       auto_restore_enabled = false,
       auto_session_suppress_dirs = { "~/", "~/Dev/", "~/Downloads", "~/Documents", "~/Desktop/" },
     })
+    auto_session_nvim_tree.setup(auto_session)
 
     local keymap = vim.keymap
 
