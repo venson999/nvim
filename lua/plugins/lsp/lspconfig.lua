@@ -71,23 +71,23 @@ return {
     end
 
     -- configure html server
-    -- lspconfig["html"].setup({
-    --   capabilities = capabilities,
-    --   on_attach = on_attach,
-    -- })
-    --
-    -- -- configure typescript server with plugin
-    -- lspconfig["tsserver"].setup({
-    --   capabilities = capabilities,
-    --   on_attach = on_attach,
-    -- })
-    --
-    -- -- configure css server
-    -- lspconfig["cssls"].setup({
-    --   capabilities = capabilities,
-    --   on_attach = on_attach,
-    -- })
-    --
+    lspconfig["html"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
+    -- configure typescript server with plugin
+    lspconfig["tsserver"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
+    -- configure css server
+    lspconfig["cssls"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
     -- -- configure tailwindcss server
     -- lspconfig["tailwindcss"].setup({
     --   capabilities = capabilities,
@@ -123,14 +123,14 @@ return {
     --   on_attach = on_attach,
     --   filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
     -- })
-    --
-    -- -- configure emmet language server
-    -- lspconfig["emmet_ls"].setup({
-    --   capabilities = capabilities,
-    --   on_attach = on_attach,
-    --   filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
-    -- })
-    --
+
+    -- configure emmet language server
+    lspconfig["emmet_ls"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+      filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
+    })
+
     -- -- configure python server
     -- lspconfig["pyright"].setup({
     --   capabilities = capabilities,
