@@ -21,13 +21,17 @@ return {
     require("luasnip.loaders.from_vscode").lazy_load()
 
     cmp.setup({
-      completion = {
-        completeopt = "menu,menuone,preview,noselect",
-      },
+      -- completion = {
+      --   completeopt = "menu,menuone,preview,noselect",
+      -- },
       snippet = { -- configure how nvim-cmp interacts with snippet engine
         expand = function(args)
           luasnip.lsp_expand(args.body)
         end,
+      },
+      window = {
+        completion = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered(),
       },
       mapping = cmp.mapping.preset.insert({
         ["<C-k>"] = cmp.mapping.select_prev_item(), -- previous suggestion
@@ -50,6 +54,18 @@ return {
         format = lspkind.cmp_format({
           maxwidth = 50,
           ellipsis_char = "...",
+          before = function(entry, vim_item)
+            vim_item.menu = "[" .. string.upper(entry.source.name) .. "]"
+            -- vim_item.menu = ({
+            --   nvim_lsp = "[LSP]",
+            --   luasnip = "[LuaSnip]",
+            --   buffer = "[Buffer]",
+            --   nvim_lua = "[Lua]",
+            --   path = "[PATH]",
+            --   cmdline = "[CMD]",
+            -- })[entry.source.name]
+            return vim_item
+          end,
         }),
       },
     })
@@ -74,9 +90,9 @@ return {
     cmp.setup.cmdline(":", {
       mapping = cmp.mapping.preset.cmdline(),
       sources = cmp.config.sources({
-        { name = "path" },
-      }, {
         { name = "cmdline" },
+      }, {
+        { name = "path" },
       }),
     })
   end,
