@@ -1,6 +1,6 @@
 return {
   "rmagatti/auto-session",
-  dependencies = { "zwhitchcox/auto-session-nvim-tree" },
+  dependencies = { "venson999/auto-session-nvim-tree" },
   config = function()
     local auto_session = require("auto-session")
     local auto_session_nvim_tree = require("auto-session-nvim-tree")
