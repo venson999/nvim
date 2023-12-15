@@ -32,13 +32,13 @@ return {
     keymap.set(
       "n",
       "<S-h>",
-      "<cmd>BufferLineMovePrev<cr>",
+      "<cmd>BufferLineCyclePrev<cr>",
       { desc = "Go to previous buffer", noremap = true, silent = true }
     )
     keymap.set(
       "n",
       "<S-l>",
-      "<cmd>BufferLineMoveNext<cr>",
+      "<cmd>BufferLineCycleNext<cr>",
       { desc = "Go to next buffer", noremap = true, silent = true }
     )
     keymap.set("n", "<leader>bx", "<cmd>Bdelete<cr>", { desc = "Close other buffers", noremap = true, silent = true })
