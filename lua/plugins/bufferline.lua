@@ -9,6 +9,15 @@ return {
       options = {
         mode = "buffers",
         close_command = "Bdelete %d",
+        custom_filter = function(buf_number, buf_numbers)
+          if vim.fn.bufname(buf_number):match(".git") then
+            return false
+          elseif vim.fn.bufname(buf_number):match("Command") then
+            return false
+          else
+            return true
+          end
+        end,
         offsets = {
           {
             filetype = "NvimTree",
