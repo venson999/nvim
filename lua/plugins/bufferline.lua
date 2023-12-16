@@ -9,7 +9,7 @@ return {
       options = {
         mode = "buffers",
         close_command = "Bdelete %d",
-        custom_filter = function(buf_number, buf_numbers)
+        custom_filter = function(buf_number)
           if vim.fn.bufname(buf_number):match(".git") then
             return false
           elseif vim.fn.bufname(buf_number):match("Command") then
