@@ -19,6 +19,13 @@ return {
       max_path_length = 80, -- Shorten the display path if length exceeds this threshold. Use 0 if don't want to shorten the path at all.
     })
 
+    -- set keymaps
+    local keymap = vim.keymap
+    keymap.set("n", "<leader>ss", "<cmd>SessionManager load_session<cr>", { desc = "Select and load session" })
+    keymap.set("n", "<leader>sd", "<cmd>SessionManager delete_session<cr>", { desc = "Select and delete session" })
+    keymap.set("n", "<leader>sa", "<cmd>SessionManager save_current_session<cr>", { desc = "Save current session" })
+    keymap.set("n", "<leader>sl", "<cmd>SessionManager load_last_session<cr>", { desc = "Load last session" })
+
     -- Toggle nvim-tree
     vim.api.nvim_create_autocmd("SessionLoadPost", {
       group = vim.api.nvim_create_augroup("user_toggle_nvim-tree", { clear = true }),
