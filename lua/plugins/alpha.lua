@@ -20,7 +20,7 @@ return {
       dashboard.button("f", " " .. " Find file", "<cmd>Telescope find_files<cr>"),
       dashboard.button("r", " " .. " Recent files", "<cmd>Telescope oldfiles<cr>"),
       dashboard.button("t", " " .. " Find text", "<cmd>Telescope live_grep<cr>"),
-      dashboard.button("s", " " .. " Restore session", "<cmd>SessionManager load_last_session<cr>"),
+      dashboard.button("s", " " .. " Load last session", "<cmd>SessionManager load_last_session<cr>"),
       dashboard.button("q", " " .. " Quit", "<cmd>qa<cr>"),
     }
     for _, button in ipairs(dashboard.section.buttons.val) do

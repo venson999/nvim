@@ -8,7 +8,8 @@ return {
     -- configure lualine with modified theme
     lualine.setup({
       options = {
-        theme = "tokyonight",
+        theme = "auto",
+        disabled_filetypes = { "alpha", "dashboard", "NvimTree", "Outline" },
       },
       sections = {
         lualine_x = {
