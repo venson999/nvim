@@ -1,20 +1,32 @@
 -- set leader key to space
 vim.g.mapleader = " "
 
-local keymap = vim.keymap -- for conciseness
-
----------------------
--- General Keymaps -------------------
+local keymap = vim.keymap
 
 -- use jk to exit insert mode
 keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" })
+keymap.set("i", "ii", "<ESC>", { desc = "Exit insert mode with ii" })
 
 -- delete single character without copying into register
--- keymap.set("n", "x", '"_x')
+keymap.set("n", "x", '"_x')
 
 -- increment/decrement numbers
 keymap.set("n", "<leader>+", "<C-a>", { desc = "Increment number" }) -- increment
 keymap.set("n", "<leader>-", "<C-x>", { desc = "Decrement number" }) -- decrement
+
+-- better up/down
+keymap.set({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+keymap.set({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+keymap.set({ "n", "x" }, "<Down>", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+keymap.set({ "n", "x" }, "<Up>", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+
+-- Move Lines
+keymap.set("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move down" })
+keymap.set("n", "<A-k>", "<cmd>m .-2<cr>==", { desc = "Move up" })
+keymap.set("i", "<A-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move down" })
+keymap.set("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move up" })
+keymap.set("v", "<A-j>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
+keymap.set("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 
 -- window management
 keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move to window on left" })
@@ -24,8 +36,14 @@ keymap.set("n", "<C-k>", "<C-w>k", { desc = "Move to window on above" })
 keymap.set("n", "<leader>wv", "<C-w>v", { desc = "Split window vertically" })
 keymap.set("n", "<leader>wh", "<C-w>s", { desc = "Split window horizontally" })
 keymap.set("n", "<leader>wx", "<cmd>close<CR>", { desc = "Close current split" })
-keymap.set("n", "j", [[v:count ? 'j' : 'gj']], { noremap = true, expr = true })
-keymap.set("n", "k", [[v:count ? 'k' : 'gk']], { noremap = true, expr = true })
+
+-- buffers
+-- keymap.set("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
+-- keymap.set("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next buffer" })
+-- keymap.set("n", "[b", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
+-- keymap.set("n", "]b", "<cmd>bnext<cr>", { desc = "Next buffer" })
+-- keymap.set("n", "<leader>bb", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
+-- keymap.set("n", "<leader>`", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
 
 -- tab management
 -- keymap.set("n", "<leader>to", "<cmd>tabnew<CR>", { desc = "Open new tab" }) -- open new tab
