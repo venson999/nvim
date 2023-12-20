@@ -41,18 +41,5 @@ return {
       "<cmd>BufferLineCycleNext<cr>",
       { desc = "Go to next buffer", noremap = true, silent = true }
     )
-    keymap.set("n", "<leader>bx", "<cmd>Bdelete<cr>", { desc = "Close other buffers", noremap = true, silent = true })
-    keymap.set(
-      "n",
-      "<leader>bo",
-      "<cmd>BufferLineCloseOthers<cr>",
-      { desc = "Close other buffers", noremap = true, silent = true }
-    )
-    keymap.set(
-      "n",
-      "<leader>ba",
-      "<cmd>:bufdo :Bdelete<cr>",
-      { desc = "Close all buffers", noremap = true, silent = true }
-    )
   end,
 }
