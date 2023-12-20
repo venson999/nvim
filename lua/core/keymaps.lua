@@ -5,7 +5,6 @@ local keymap = vim.keymap
 
 -- use jk to exit insert mode
 keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" })
-keymap.set("i", "ii", "<ESC>", { desc = "Exit insert mode with ii" })
 
 -- delete single character without copying into register
 keymap.set("n", "x", '"_x')
@@ -20,6 +19,13 @@ keymap.set({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent
 keymap.set({ "n", "x" }, "<Down>", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 keymap.set({ "n", "x" }, "<Up>", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 
+-- save file
+keymap.set({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
+
+-- better indenting
+keymap.set("v", "<", "<gv")
+keymap.set("v", ">", ">gv")
+
 -- Move Lines
 keymap.set("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move down" })
 keymap.set("n", "<A-k>", "<cmd>m .-2<cr>==", { desc = "Move up" })
@@ -28,7 +34,7 @@ keymap.set("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move up" })
 keymap.set("v", "<A-j>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
 keymap.set("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 
--- window management
+-- Move to window using the <ctrl> hjkl keys
 keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move to window on left" })
 keymap.set("n", "<C-h>", "<C-w>h", { desc = "Move to window on right" })
 keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move to window on below" })
