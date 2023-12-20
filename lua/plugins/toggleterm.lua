@@ -1,22 +1,25 @@
 return {
   "akinsho/toggleterm.nvim",
   cmd = { "ToggleTerm", "TermExec" },
-  keys = [[<leader>t]],
-  config = function()
-    require("toggleterm").setup({
-      open_mapping = [[<leader>t]],
-      direction = "horizontal",
-      shell = "pwsh",
-    })
+  keys = {
+    { "<leader>t", "<cmd>ToggleTerm<cr>", desc = "Toggle terminal" },
+  },
+  opts = {
+    direction = "horizontal",
+    shell = "pwsh",
+  },
+  config = function(_, opts)
+    require("toggleterm").setup(opts)
+
     function _G.set_terminal_keymaps()
-      local opts = { buffer = 0 }
-      vim.keymap.set("t", "<esc>", [[<C-\><C-n>]], opts)
-      vim.keymap.set("t", "jk", [[<C-\><C-n>]], opts)
-      vim.keymap.set("t", "<C-h>", [[<Cmd>wincmd h<CR>]], opts)
-      vim.keymap.set("t", "<C-j>", [[<Cmd>wincmd j<CR>]], opts)
-      vim.keymap.set("t", "<C-k>", [[<Cmd>wincmd k<CR>]], opts)
-      vim.keymap.set("t", "<C-l>", [[<Cmd>wincmd l<CR>]], opts)
-      vim.keymap.set("t", "<C-w>", [[<C-\><C-n><C-w>]], opts)
+      local options = { buffer = 0 }
+      vim.keymap.set("t", "<esc>", [[<C-\><C-n>]], options)
+      vim.keymap.set("t", "jk", [[<C-\><C-n>]], options)
+      vim.keymap.set("t", "<C-h>", [[<cmd>wincmd h<cr>]], options)
+      vim.keymap.set("t", "<C-j>", [[<cmd>wincmd j<cr>]], options)
+      vim.keymap.set("t", "<C-k>", [[<cmd>wincmd k<cr>]], options)
+      vim.keymap.set("t", "<C-l>", [[<cmd>wincmd l<cr>]], options)
+      vim.keymap.set("t", "<C-w>", [[<C-\><C-n><C-w>]], options)
     end
 
     -- if you only want these mappings for toggle term use term://*toggleterm#* instead
