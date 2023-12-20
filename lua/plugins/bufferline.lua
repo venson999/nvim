@@ -27,19 +27,5 @@ return {
         separator_style = "slant",
       },
     })
-
-    local keymap = vim.keymap
-    keymap.set(
-      "n",
-      "<S-h>",
-      "<cmd>BufferLineCyclePrev<cr>",
-      { desc = "Go to previous buffer", noremap = true, silent = true }
-    )
-    keymap.set(
-      "n",
-      "<S-l>",
-      "<cmd>BufferLineCycleNext<cr>",
-      { desc = "Go to next buffer", noremap = true, silent = true }
-    )
   end,
 }

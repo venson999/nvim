@@ -44,13 +44,22 @@ keymap.set("n", "<leader>wh", "<C-w>s", { desc = "Split window horizontally" })
 keymap.set("n", "<leader>wx", "<cmd>close<CR>", { desc = "Close current split" })
 
 -- buffers
--- keymap.set("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
--- keymap.set("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next buffer" })
--- keymap.set("n", "[b", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
--- keymap.set("n", "]b", "<cmd>bnext<cr>", { desc = "Next buffer" })
--- keymap.set("n", "<leader>bb", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
--- keymap.set("n", "<leader>`", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
+keymap.set("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
+keymap.set("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next buffer" })
+keymap.set("n", "[b", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
+keymap.set("n", "]b", "<cmd>bnext<cr>", { desc = "Next buffer" })
+keymap.set("n", "<leader>bb", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
+keymap.set("n", "<leader>`", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
 
+-- Terminal Mappings
+keymap.set("t", "<esc>", "<c-\\><c-n>", { desc = "Enter Normal Mode" })
+keymap.set("t", "jk", "<c-\\><c-n>", { desc = "Enter Normal Mode" })
+keymap.set("t", "<C-h>", "<cmd>wincmd h<cr>", { desc = "Go to left window" })
+keymap.set("t", "<C-j>", "<cmd>wincmd j<cr>", { desc = "Go to lower window" })
+keymap.set("t", "<C-k>", "<cmd>wincmd k<cr>", { desc = "Go to upper window" })
+keymap.set("t", "<C-l>", "<cmd>wincmd l<cr>", { desc = "Go to right window" })
+keymap.set("t", "<C-/>", "<cmd>close<cr>", { desc = "Hide Terminal" })
+keymap.set("t", "<c-_>", "<cmd>close<cr>", { desc = "which_key_ignore" })
 -- tab management
 -- keymap.set("n", "<leader>to", "<cmd>tabnew<CR>", { desc = "Open new tab" }) -- open new tab
 -- keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" }) -- close current tab
