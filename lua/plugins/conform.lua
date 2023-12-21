@@ -1,8 +1,7 @@
 return {
   {
     "stevearc/conform.nvim",
-    opts = {},
-    event = "VeryLazy",
+    event = { "BufReadPost", "BufNewFile", "BufWritePre" },
     config = function()
       local conform = require("conform")
       conform.setup({
@@ -12,6 +11,8 @@ return {
           --python = { "isort", "black" },
           -- Use a sub-list to run only the first available formatter
           javascript = { "prettier" },
+          json = { "prettier" },
+          jsonc = { "prettier" },
         },
         format_on_save = {
           -- These options will be passed to conform.format()
