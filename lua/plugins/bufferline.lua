@@ -21,7 +21,9 @@ return {
         offsets = {
           {
             filetype = "NvimTree",
-            text_align = "center",
+            text = "File Explorer",
+            highlight = "Directory",
+            text_align = "left",
           },
         },
         separator_style = "slant",
