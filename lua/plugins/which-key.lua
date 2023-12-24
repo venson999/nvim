@@ -12,6 +12,7 @@ return {
     prefix = "<leader>",
   },
   config = function(_, opts)
+    -- stylua: ignore
     local mapping = {
       b = {
         name = "buffer",
@@ -34,7 +35,6 @@ return {
         r = { "<cmd>Telescope oldfiles<cr>", "Fuzzy find recent files" },
         s = { "<cmd>Telescope live_grep<cr>", "Find string in cwd" },
       },
-      -- stylua: ignore start
       h = {
         name = "harpoon",
         a = { function() require("harpoon"):list():append() end, "Add to the list" },
@@ -45,7 +45,6 @@ return {
         ["4"] = { function() require("harpoon"):list():select(4) end, "Switch to the 4th file" },
         ["5"] = { function() require("harpoon"):list():select(5) end, "Switch to the 5th file" },
       },
-      -- stylua: ignore end
       s = {
         name = "session",
         a = { "<cmd>SessionManager save_current_session<cr>", "Save current session" },
@@ -54,7 +53,7 @@ return {
         s = { "<cmd>SessionManager load_session<cr>", "Select and load session" },
       },
       t = {
-        name = "tab",
+        "<cmd>ToggleTerm<cr>", "Toggle terminal",
       },
       w = {
         name = "window",
