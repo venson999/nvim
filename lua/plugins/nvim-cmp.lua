@@ -34,27 +34,29 @@ return {
         documentation = cmp.config.window.bordered(),
       },
       mapping = cmp.mapping.preset.insert({
-        ["<C-k>"] = cmp.mapping.scroll_docs(-4),
-        ["<C-j>"] = cmp.mapping.scroll_docs(4),
-        ["<C-c>"] = cmp.mapping.complete(), -- show completion suggestions
-        ["<C-e>"] = cmp.mapping.abort(), -- close completion window
-        ["<CR>"] = cmp.mapping.confirm({ select = false }),
-        ["<Tab>"] = cmp.mapping(function(fallback)
-          if cmp.visible() then
-            return cmp.select_next_item()
-          elseif luasnip.expand_or_jumpable() then
-            return luasnip.expand_or_jump()
-          end
-          fallback()
-        end, { "i", "s" }),
-        ["<S-Tab>"] = cmp.mapping(function(fallback)
-          if cmp.visible() then
-            return cmp.select_prev_item()
-          elseif luasnip.jumpable(-1) then
-            luasnip.jump(-1)
-          end
-          fallback()
-        end, { "i", "s" }),
+        ["<C-u>"] = cmp.mapping.scroll_docs(-4),
+        ["<C-d>"] = cmp.mapping.scroll_docs(4),
+        ["<cr>"] = cmp.mapping.confirm({ select = false, behavior = cmp.ConfirmBehavior.Replace }),
+        ["<tab>"] = cmp.mapping.select_next_item(),
+        ["<S-tab>"] = cmp.mapping.select_prev_item(),
+        ["<down>"] = cmp.mapping.select_next_item(),
+        ["<up>"] = cmp.mapping.select_prev_item(),
+        --   ["<Tab>"] = cmp.mapping(function(fallback)
+        --     if cmp.visible() then
+        --       return cmp.select_next_item()
+        --     elseif luasnip.expand_or_jumpable() then
+        --       return luasnip.expand_or_jump()
+        --     end
+        --     fallback()
+        --   end, { "i", "s" }),
+        --   ["<S-Tab>"] = cmp.mapping(function(fallback)
+        --     if cmp.visible() then
+        --       return cmp.select_prev_item()
+        --     elseif luasnip.jumpable(-1) then
+        --       luasnip.jump(-1)
+        --     end
+        --     fallback()
+        --   end, { "i", "s" }),
       }),
       -- sources for autocompletion
       sources = cmp.config.sources({
@@ -70,14 +72,6 @@ return {
           ellipsis_char = "...",
           before = function(entry, vim_item)
             vim_item.menu = "[" .. string.upper(entry.source.name) .. "]"
-            -- vim_item.menu = ({
-            --   nvim_lsp = "[LSP]",
-            --   luasnip = "[LuaSnip]",
-            --   buffer = "[Buffer]",
-            --   nvim_lua = "[Lua]",
-            --   path = "[PATH]",
-            --   cmdline = "[CMD]",
-            -- })[entry.source.name]
             return vim_item
           end,
         }),
