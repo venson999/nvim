@@ -6,6 +6,8 @@ return {
       "nvim-treesitter/nvim-treesitter-textobjects",
     },
     opts = {
+      ensure_installed = { "lua", "vim", "vimdoc" },
+      auto_install = true,
       highlight = {
         enable = true,
         -- Setting this to true will run `:h syntax` and tree-sitter at the same time.

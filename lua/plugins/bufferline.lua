@@ -9,10 +9,14 @@ return {
       options = {
         mode = "buffers",
         close_command = "Bdelete %d",
-        custom_filter = function(buf_number)
-          if vim.fn.bufname(buf_number):match("\\.git") then
+        custom_filter = function(buf)
+          if vim.bo[buf].filetype == "help" then
             return false
-          elseif vim.fn.bufname(buf_number):match("Command") then
+          elseif vim.bo[buf].filetype == "fugitive" then
+            return false
+          elseif vim.bo[buf].filetype == "gitcommit" then
+            return false
+          elseif vim.fn.bufname(buf):match("Command") then
             return false
           else
             return true
