@@ -6,6 +6,9 @@ local keymap = vim.keymap
 -- use jk to exit insert mode
 keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" })
 
+-- exit nvim
+keymap.set("n", "<leader>q", "<cmd>qa<cr>", { desc = "Exit nvim" })
+
 -- delete single character without copying into register
 keymap.set("n", "x", '"_x')
 
