@@ -3,6 +3,5 @@ return {
   cmd = { "ToggleTerm", "TermExec" },
   opts = {
     direction = "horizontal",
-    shell = "pwsh",
   },
 }
