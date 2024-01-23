@@ -42,8 +42,8 @@ keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move to window on left" })
 keymap.set("n", "<C-h>", "<C-w>h", { desc = "Move to window on right" })
 keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move to window on below" })
 keymap.set("n", "<C-k>", "<C-w>k", { desc = "Move to window on above" })
-keymap.set("n", "<leader>wv", "<C-w>v", { desc = "Split window vertically" })
-keymap.set("n", "<leader>wh", "<C-w>s", { desc = "Split window horizontally" })
+keymap.set("n", "<leader>w|", "<C-w>v", { desc = "Split window vertically" })
+keymap.set("n", "<leader>w-", "<C-w>s", { desc = "Split window horizontally" })
 keymap.set("n", "<leader>wx", "<cmd>close<CR>", { desc = "Close current split" })
 
 -- buffers
