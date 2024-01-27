@@ -21,9 +21,6 @@ return {
           async = false,
         },
         formatters = {
-          stylua = {
-            prepend_args = { "--indent-type", "Spaces", "--indent-width", "2" },
-          },
           prettier = {
             prepend_args = { "--no-semi" },
           },
