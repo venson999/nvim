@@ -15,16 +15,9 @@ return {
     local mapping = {
       b = {
         name = "buffer",
-        a = { "<cmd>:bufdo :Bdelete<cr>", "Close all buffers" },
-        o = { "<cmd>BufferLineCloseOthers<cr>", "Close other buffers" },
-        x = { "<cmd>Bdelete<cr>", "Close current buffers" },
       },
       e = {
         name = "explorer",
-        e = { "<cmd>NvimTreeToggle<CR>", "Toggle file explorer" },
-        f = { "<cmd>NvimTreeFindFile<CR>", "Toggle file explorer on current file" },
-        c = { "<cmd>NvimTreeCollapse<CR>", "Collapse file explorer" },
-        r = { "<cmd>NvimTreeRefresh<CR>", "Refresh file explorer" },
       },
       f = {
         name = "find",

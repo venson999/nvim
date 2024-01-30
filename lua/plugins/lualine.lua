@@ -9,7 +9,7 @@ return {
     lualine.setup({
       options = {
         theme = "auto",
-        disabled_filetypes = { "alpha", "dashboard", "NvimTree", "Outline" },
+        disabled_filetypes = { "alpha", "dashboard", "neo-tree", "Outline" },
       },
       sections = {
         lualine_x = {
