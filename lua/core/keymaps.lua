@@ -25,6 +25,9 @@ keymap.set({ "n", "x" }, "<Up>", "v:count == 0 ? 'gk' : 'k'", { expr = true, sil
 -- save file
 keymap.set({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
 
+-- clear search with <esc>
+keymap.set({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })
+
 -- better indenting
 keymap.set("v", "<", "<gv")
 keymap.set("v", ">", ">gv")
