@@ -1,7 +1,12 @@
 return {
   "Shatur/neovim-session-manager",
-  dependencies = {
-    "nvim-lua/plenary.nvim",
+  lazy = false,
+  dependencies = { "nvim-lua/plenary.nvim" },
+  keys = {
+    { "<leader>sa", "<cmd>SessionManager save_current_session<cr>", desc = "Save current session" },
+    { "<leader>sd", "<cmd>SessionManager delete_session<cr>", desc = "Select and delete session" },
+    { "<leader>sl", "<cmd>SessionManager load_last_session<cr>", desc = "Load last session" },
+    { "<leader>ss", "<cmd>SessionManager load_session<cr>", desc = "Select and load session" },
   },
   config = function()
     local Path = require("plenary.path")
