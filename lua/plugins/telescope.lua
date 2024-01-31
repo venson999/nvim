@@ -4,13 +4,16 @@ return {
   branch = "0.1.x",
   dependencies = {
     "nvim-lua/plenary.nvim",
-    { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-    "nvim-telescope/telescope-file-browser.nvim",
     "nvim-tree/nvim-web-devicons",
+    {
+      "nvim-telescope/telescope-fzf-native.nvim",
+      enabled = vim.fn.executable("make") == 1,
+      build = "make",
+    },
   },
   keys = {
+    { "<leader>fb", "<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>", desc = "Find buffers" },
     { "<leader>fc", "<cmd>Telescope grep_string<cr>", desc = "Find string under cursor in cwd" },
-    { "<leader>fb", "<cmd>Telescope file_browser<cr>", desc = "Open file browser in cwd" },
     { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Fuzzy find files in cwd" },
     { "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Fuzzy find recent files" },
     { "<leader>fs", "<cmd>Telescope live_grep<cr>", desc = "Find string in cwd" },
@@ -24,36 +27,16 @@ return {
         path_display = { "truncate " },
         mappings = {
           i = {
-            ["<C-k>"] = actions.move_selection_previous, -- move to prev result
-            ["<C-j>"] = actions.move_selection_next, -- move to next result
-            ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
+            ["<C-k>"] = actions.move_selection_previous,
+            ["<C-j>"] = actions.move_selection_next,
           },
-        },
-      },
-      extensions = {
-        fzf = {
-          fuzzy = true, -- false will only do exact matching
-          override_generic_sorter = true, -- override the generic sorter
-          override_file_sorter = true, -- override the file sorter
-          case_mode = "smart_case", -- or "ignore_case" or "respect_case"
-          -- the default case_mode is "smart_case"
-        },
-        file_browser = {
-          -- disables netrw and use telescope-file-browser in its place
-          hijack_netrw = true,
-          mappings = {
-            ["i"] = {
-              -- your custom insert mode mappings
-            },
-            ["n"] = {
-              -- your custom normal mode mappings
-            },
+          n = {
+            ["q"] = actions.close,
           },
         },
       },
     })
 
     telescope.load_extension("fzf")
-    telescope.load_extension("file_browser")
   end,
 }
