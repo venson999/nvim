@@ -20,6 +20,9 @@ return {
         name = "find",
       },
       h = {
+        name = "git hunk",
+      },
+      H = {
         name = "harpoon",
       },
       s = {
