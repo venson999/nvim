@@ -1,34 +1,10 @@
 return {
   "nvim-neo-tree/neo-tree.nvim",
   branch = "v3.x",
-  cmd = "Neotree",
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-tree/nvim-web-devicons",
     "MunifTanjim/nui.nvim",
-  },
-  keys = {
-    {
-      "<leader>ef",
-      function()
-        require("neo-tree.command").execute({ source = "filesystem", toggle = true })
-      end,
-      desc = "File explorer",
-    },
-    {
-      "<leader>eg",
-      function()
-        require("neo-tree.command").execute({ source = "git_status", toggle = true })
-      end,
-      desc = "Git explorer",
-    },
-    {
-      "<leader>eb",
-      function()
-        require("neo-tree.command").execute({ source = "buffers", toggle = true })
-      end,
-      desc = "Buffer explorer",
-    },
   },
   opts = {
     filesystem = {
@@ -56,4 +32,24 @@ return {
       },
     },
   },
+  config = function(_, opts)
+    require("neo-tree").setup(opts)
+
+    local keymap = vim.keymap
+    local command = require("neo-tree.command")
+
+    -- stylua: ignore start
+    keymap.set("n", "<leader>ef", function() command.execute({ source = "filesystem", toggle = true }) end, { desc = "File explorer" })
+    keymap.set("n", "<leader>eb", function() command.execute({ source = "buffers", toggle = true }) end, { desc = "Buffer explorer" })
+    keymap.set("n", "<leader>eg", function() command.execute({ source = "git_status", toggle = true }) end, { desc = "Git explorer" })
+    -- stylua: ignore end
+
+    -- show neo-tree on sessionload
+    vim.api.nvim_create_autocmd("SessionLoadPost", {
+      group = vim.api.nvim_create_augroup("user_toggle_neo-tree", { clear = true }),
+      callback = function()
+        require("neo-tree.command").execute({ action = "show" })
+      end,
+    })
+  end,
 }

@@ -10,14 +10,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   end,
 })
 
--- show neo-tree on sessionload
-vim.api.nvim_create_autocmd("SessionLoadPost", {
-  group = augroup("toggle_neo-tree"),
-  callback = function()
-    require("neo-tree.command").execute({ action = "show" })
-  end,
-})
-
 -- close some filetypes with <q>
 vim.api.nvim_create_autocmd("FileType", {
   group = augroup("close_with_q"),
