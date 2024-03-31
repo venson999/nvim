@@ -58,8 +58,8 @@ return {
           capabilities = lsp_capabilities,
           handlers = {
             -- Add borders to LSP popups
-            ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" }),
-            ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" }),
+            ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "single" }),
+            ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "single" }),
           },
         })
       end,
@@ -76,6 +76,8 @@ return {
         },
       },
     })
+
+    require("lspconfig.ui.windows").default_options.border = "single"
 
     -- Change the Diagnostic symbols in the sign column (gutter)
     local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
