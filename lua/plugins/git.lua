@@ -9,7 +9,7 @@ return {
   },
   {
     "lewis6991/gitsigns.nvim",
-    event = { "BufReadPost", "BufNewFile", "BufWritePre" },
+    event = "LazyFile",
     -- stylua: ignore
     opts = {
       on_attach = function(bufnr)
