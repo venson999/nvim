@@ -2,8 +2,6 @@ return {
   "williamboman/mason.nvim",
   event = "LazyFile",
   dependencies = {
-    { "folke/neodev.nvim", opts = {} },
-    { "folke/neoconf.nvim", opts = {} },
     "williamboman/mason-lspconfig.nvim",
     "WhoIsSethDaniel/mason-tool-installer.nvim",
   },
