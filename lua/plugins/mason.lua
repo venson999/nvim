@@ -1,13 +1,11 @@
 return {
-  "neovim/nvim-lspconfig",
+  "williamboman/mason.nvim",
   event = "LazyFile",
   dependencies = {
     { "folke/neodev.nvim", opts = {} },
     { "folke/neoconf.nvim", opts = {} },
-    "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
     "WhoIsSethDaniel/mason-tool-installer.nvim",
-    "hrsh7th/cmp-nvim-lsp",
   },
   config = function()
     require("mason").setup({
@@ -23,7 +21,7 @@ return {
 
     require("mason-lspconfig").setup({
       ensure_installed = {
-        "tsserver",
+        "ts_ls",
         "html",
         "cssls",
         -- "tailwindcss",
@@ -46,37 +44,6 @@ return {
         "eslint_d", -- js linter
       },
     })
-
-    local lspconfig = require("lspconfig")
-    local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
-
-    -- Call setup on each LSP server
-    require("mason-lspconfig").setup_handlers({
-      function(server_name)
-        lspconfig[server_name].setup({
-          capabilities = lsp_capabilities,
-          handlers = {
-            -- Add borders to LSP popups
-            ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "single" }),
-            ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "single" }),
-          },
-        })
-      end,
-    })
-
-    -- Lua LSP settings
-    lspconfig.lua_ls.setup({
-      settings = {
-        Lua = {
-          diagnostics = {
-            -- Get the language server to recognize the `vim` global
-            globals = { "vim" },
-          },
-        },
-      },
-    })
-
-    require("lspconfig.ui.windows").default_options.border = "single"
 
     -- Change the Diagnostic symbols in the sign column (gutter)
     local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }

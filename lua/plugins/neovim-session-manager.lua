@@ -1,7 +1,10 @@
 return {
   "Shatur/neovim-session-manager",
   lazy = false,
-  dependencies = { "nvim-lua/plenary.nvim" },
+  dependencies = {
+    "nvim-lua/plenary.nvim",
+    "neovim/nvim-lspconfig",
+  },
   keys = {
     { "<leader>sa", "<cmd>SessionManager save_current_session<cr>", desc = "Save current session" },
     { "<leader>sd", "<cmd>SessionManager delete_session<cr>", desc = "Select and delete session" },
