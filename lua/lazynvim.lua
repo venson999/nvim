@@ -23,7 +23,7 @@ require("lazy").setup({ { import = "plugins" } }, {
     colorscheme = { "tokyonight" },
   },
   ui = {
-    border = "single",
+    border = "rounded",
   },
   checker = {
     enabled = true,
