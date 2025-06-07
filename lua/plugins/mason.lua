@@ -1,8 +1,7 @@
 return {
-  "williamboman/mason.nvim",
-  event = "LazyFile",
+  "mason-org/mason.nvim",
   dependencies = {
-    "williamboman/mason-lspconfig.nvim",
+    "mason-org/mason-lspconfig.nvim",
     "WhoIsSethDaniel/mason-tool-installer.nvim",
   },
   config = function()
