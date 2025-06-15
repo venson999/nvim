@@ -25,7 +25,11 @@ return {
     -- C-k: Toggle signature help (if signature.enabled = true)
     --
     -- See :h blink-cmp-config-keymap for defining your own keymap
-    keymap = { preset = "default" },
+    keymap = {
+      preset = "enter",
+      ["<S-tab>"] = { "select_prev", "fallback" },
+      ["<tab>"] = { "select_next", "fallback" },
+    },
 
     appearance = {
       -- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
@@ -44,6 +48,7 @@ return {
         },
       },
       menu = {
+        auto_show = true,
         border = "rounded",
         draw = { gap = 2 },
         winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:BlinkCmpMenuSelection,Search:None",
@@ -62,6 +67,14 @@ return {
     --
     -- See the fuzzy documentation for more information
     fuzzy = { implementation = "prefer_rust_with_warning" },
+
+    cmdline = {
+      completion = {
+        menu = {
+          auto_show = true,
+        },
+      },
+    },
   },
   opts_extend = { "sources.default" },
 }
