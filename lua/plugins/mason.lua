@@ -3,50 +3,32 @@ return {
   dependencies = {
     "mason-org/mason-lspconfig.nvim",
     "WhoIsSethDaniel/mason-tool-installer.nvim",
+    "neovim/nvim-lspconfig",
   },
   config = function()
     require("mason").setup({
       ui = {
         border = "rounded",
-        icons = {
-          package_installed = "✓",
-          package_pending = "➜",
-          package_uninstalled = "✗",
-        },
       },
     })
 
     require("mason-lspconfig").setup({
       ensure_installed = {
-        "ts_ls",
+        "lua_ls",
+        "jsonls",
+        "vtsls",
+        "vue_ls",
         "html",
         "cssls",
-        -- "tailwindcss",
-        -- "svelte",
-        "lua_ls",
-        -- "graphql",
-        "emmet_ls",
-        -- "prismals",
-        "pyright",
       },
-      automatic_installation = true, -- not the same as ensure_installed
     })
 
     require("mason-tool-installer").setup({
       ensure_installed = {
-        "prettier", -- prettier formatter
-        "stylua", -- lua formatter
-        "isort", -- python formatter
-        "pylint", -- python linter
-        "eslint_d", -- js linter
+        "prettier",
+        "stylua",
+        "eslint_d",
       },
     })
-
-    -- Change the Diagnostic symbols in the sign column (gutter)
-    local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
-    for type, icon in pairs(signs) do
-      local hl = "DiagnosticSign" .. type
-      vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-    end
   end,
 }

@@ -6,7 +6,7 @@ return {
       "nvim-treesitter/nvim-treesitter-textobjects",
     },
     opts = {
-      ensure_installed = { "lua", "vim", "vimdoc" },
+      ensure_installed = { "lua", "vim", "vimdoc", "json", "jsonc", "html", "css", "javascript", "vue" },
       auto_install = true,
       highlight = {
         enable = true,

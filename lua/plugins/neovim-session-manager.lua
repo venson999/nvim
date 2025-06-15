@@ -3,7 +3,6 @@ return {
   lazy = false,
   dependencies = {
     "nvim-lua/plenary.nvim",
-    "neovim/nvim-lspconfig",
   },
   keys = {
     { "<leader>sa", "<cmd>SessionManager save_current_session<cr>", desc = "Save current session" },
