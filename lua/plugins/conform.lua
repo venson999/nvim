@@ -11,6 +11,7 @@ return {
           typescript = { "prettier" },
           javascriptreact = { "prettier" },
           typescriptreact = { "prettier" },
+          vue = { "prettier" },
           json = { "prettier" },
           jsonc = { "prettier" },
           python = { "isort" },
