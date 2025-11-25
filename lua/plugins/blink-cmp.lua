@@ -39,6 +39,9 @@ return {
 
     -- (Default) Only show the documentation popup when manually triggered
     completion = {
+      list = {
+        selection = { preselect = false },
+      },
       documentation = {
         auto_show = true,
         auto_show_delay_ms = 200,
@@ -69,7 +72,11 @@ return {
     fuzzy = { implementation = "prefer_rust_with_warning" },
 
     cmdline = {
+      keymap = { preset = "inherit" },
       completion = {
+        list = {
+          selection = { preselect = false },
+        },
         menu = {
           auto_show = true,
         },
