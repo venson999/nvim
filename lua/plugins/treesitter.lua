@@ -1,10 +1,8 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter",
-    event = "VeryLazy",
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter-textobjects",
-    },
+    lazy = false,
+    build = ":TSUpdate",
     opts = {
       ensure_installed = { "lua", "vim", "vimdoc", "json", "jsonc", "html", "css", "javascript", "vue" },
       auto_install = true,
@@ -67,7 +65,17 @@ return {
       },
     },
     config = function(_, opts)
-      require("nvim-treesitter.configs").setup(opts)
+      local nts = require("nvim-treesitter")
+      nts.setup(opts)
+      nts.install(opts.ensure_installed)
     end,
+  },
+  {
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    branch = "main",
+    event = "LazyFile",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+    },
   },
 }
