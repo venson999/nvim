@@ -7,6 +7,11 @@ return {
     "MunifTanjim/nui.nvim",
   },
   opts = {
+    window = {
+      mappings = {
+        ["<space>"] = false, -- disable space key
+      },
+    },
     filesystem = {
       follow_current_file = {
         enabled = true,
