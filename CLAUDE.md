@@ -40,7 +40,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - 使用 Mason 管理 LSP 服务器、formatters 和 linters
 - 通过 `after/lsp/` 目录为特定 LSP 提供自定义配置
 - vtsls 配置集成了 Vue TypeScript 插件,支持 `.vue` 文件的类型检查
-- 格式化通过 conform.nvim 统一管理,配置的 formatters: stylua (lua), prettier (js/ts/vue/json), isort (python)
+- 格式化通过 conform.nvim 统一管理,配置的 formatters: stylua (lua), prettier (js/ts/vue/json)
 - Linting 通过 nvim-lint
 
 ## 关键配置细节

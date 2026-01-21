@@ -14,7 +14,6 @@ return {
           vue = { "prettier" },
           json = { "prettier" },
           jsonc = { "prettier" },
-          python = { "isort" },
         },
         format_on_save = {
           -- These options will be passed to conform.format()

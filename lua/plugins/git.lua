@@ -32,7 +32,7 @@ return {
           if vim.wo.diff then return "[c" end
           vim.schedule(function() gs.prev_hunk() end)
           return "<Ignore>"
-        end, { desc = "Prev huck", expr = true })
+        end, { desc = "Prev hunk", expr = true })
 
         -- Actions
         map("n", "<leader>hs", gs.stage_hunk, { desc = "Stage hunk" })

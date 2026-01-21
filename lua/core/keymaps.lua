@@ -41,8 +41,8 @@ keymap.set("v", "<A-j>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
 keymap.set("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 
 -- Move to window using the <ctrl> hjkl keys
-keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move to window on left" })
-keymap.set("n", "<C-h>", "<C-w>h", { desc = "Move to window on right" })
+keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move to window on right" })
+keymap.set("n", "<C-h>", "<C-w>h", { desc = "Move to window on left" })
 keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move to window on below" })
 keymap.set("n", "<C-k>", "<C-w>k", { desc = "Move to window on above" })
 keymap.set("n", "<leader>w|", "<C-w>v", { desc = "Split window vertically" })
@@ -50,8 +50,8 @@ keymap.set("n", "<leader>w-", "<C-w>s", { desc = "Split window horizontally" })
 keymap.set("n", "<leader>wx", "<cmd>close<CR>", { desc = "Close current split" })
 
 -- buffers
-keymap.set("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
-keymap.set("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next buffer" })
+-- keymap.set("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
+-- keymap.set("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next buffer" })
 keymap.set("n", "[b", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
 keymap.set("n", "]b", "<cmd>bnext<cr>", { desc = "Next buffer" })
 keymap.set("n", "<leader>bb", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
